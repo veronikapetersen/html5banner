@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset=utf-8>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="ad.size" content="width=300,height=600">
+     <script type="text/javascript">
+        var clickTag = "http://www.google.com";
+     ​</script>
+    <meta name="description" content="">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      #banner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        cursor: pointer;
+        overflow: hidden;
+        background: #000;
+      }
+
+      .absolute {
+        position: absolute;
+      }
+
+      #vid_bg { 
+         position: absolute;
+         top: 0;
+         left: 50%;
+         width: auto;
+         height: 100%;
+         overflow: hidden;
+          -webkit-filter: blur(8px);
+        -moz-filter: blur(8px);
+        -o-filter: blur(8px);
+        -ms-filter: blur(8px);
+        filter: blur(8px);
+        transform: translateX(-50%);
+        opacity: 0.6;
+      }
+
+      .size {
+        width: 300px;
+        height: 600px;
+      }
+
+      #logo {
+        background: url('logo.png');
+        top: 0;
+        left: 0;
+      }
+
+      #txt_1 {
+        background: url('txt_1.png');
+        top: 0;
+        left: 0;
+      }
+
+      #cta {
+        background: url('cta.png');
+        background-position: center center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 131px;
+        height: 35px;
+        top: 450px;
+        left: 75px;
+      }
+
+      #vid {  
+        height: auto;
+        width: 355px;
+        left: -28px;
+        top: 200px;
+      }
+
+    </style>
+</head>
+
+<body>
+    <a href="javascript:window.open(window.clickTag)">
+      <div id="banner" class="size">
+        <img src="" alt="">
+        <div id="logo" class="absolute size"></div>
+        <div id="txt_1" class="absolute size"></div>
+        <div id="cta" class="absolute"></div>
+      </div>
+    </a>
+ 
+    <script src="https://s0.2mdn.net/ads/studio/cached_libs/gsap_3.0.1_min.js"></script>
+    <script type="text/javascript">
+
+        var cta_tl = new TimelineMax({repeat:3})
+
+        cta_tl
+        .to("#cta", .1, {scale: 0.9}, "+=2.5")
+        .to("#cta", .2, {scale: 1.2})
+        .to("#cta", .2, {scale: 1})
+        .to("#cta", .1, {scale: 0.9}, "+=4")
+        .to("#cta", .2, {scale: 1.2})
+        .to("#cta", .2, {scale: 1});
+
+        var banner = document.getElementById('banner');
+    clickTAGvalue = dhtml.getVar('clickTAG', 'http://www.example.com');//banner will receive clickTAG value - if not defined, banner will land to example.com
+    landingpagetarget = dhtml.getVar('landingPageTarget', '_blank');//landingPageTarget variable enables to change target from Adform system.
+
+    banner.onclick = function() {
+        window.open(clickTAGvalue,landingpagetarget); //when banner is clicked it will open new window directing to clickTAG value
+    }
+
+    </script>
+ 
+</body>
+</html>
