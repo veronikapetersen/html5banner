@@ -3,9 +3,11 @@ var router = express.Router();
 const path = require('path');
 const admzip = require('adm-zip')
 
+
+
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'DEPT' });
 });
 
 var multer = require('multer');
@@ -31,9 +33,9 @@ router.post('/profile-upload-single',
   
   upload.fields([
     { name: 'bg' },
-    { name: 'cta' },
-    // { name: 'txt_2' },
-    // { name: 'cta' }
+    { name: 'txt_1' },
+    { name: 'txt_2' },
+    { name: 'cta' }
   ]), 
   function (req, res, next) {
 

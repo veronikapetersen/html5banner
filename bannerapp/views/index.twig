@@ -1,8 +1,8 @@
 {% extends 'layout.twig' %}
 
 {% block body %}
-  <h1>{{title}}</h1>
-  <p>dd to {{title}}</p>
+  <h1 class="bg-dark text-white fw-bold fs-2 p-4">{{title}}</h1>
+  <h2 class="p-2 fw-bold d-flex justify-content-center"> HTML5 Banners Generator</h2>
 
 {# 
   <form method="POST" action="/profile-upload-single" enctype="multipart/form-data">
@@ -29,19 +29,49 @@
       </div>
   </form> #}
 
-    <input id="fileupload" type="file" name="bg" />
-    <input id="fileupload" type="file" name="cta" />
-    <button id="upload-button"> Upload </button>
+  <section id="upload" class="p-2">
+      <h3>Step 1: Upload the assets</h3>
+      <div class="d-grid gap-3">
+            <div class="p-2 bg-light border">
+                <p>Background image:</p>
+                <input id="fileupload" type="file" name="bg"/>
+            </div>
+            <div class="p-2 bg-light border">
+                <p>Text 1:</p>
+                <input id="fileupload2" type="file" name="txt_1"/>
+            </div>
+            <div class="p-2 bg-light border">
+                <p>Text 2:</p>
+                <input id="fileupload3" type="file" name="txt_2"/>
+            </div>
+            <div class="p-2 bg-light border">
+                <p>CTA:</p>
+                <input id="fileupload4" type="file" name="cta"/>
+            </div>
+            <div>
+                <button id="upload-button" class="btn btn-dark">Upload </button>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section id="preview" class="p-2">
+        <h3>Step 2: Preview the banner</h3>
 
-  {# <iframe src="300x600.html" frameborder="0" width="300" height="600" scrolling="no"></iframe> #}
-
+        <div class="d-flex justify-content-center">
+            <iframe src="300x600.html" frameborder="0" width="300" height="600" scrolling="no"></iframe>
+        </div>
+    </section>
   {# <div>
     <a href="/uploads.zip" download="300x600">Download</a>
 </div> #}
 
-<div>
-    <form action="/compress" method="post">
-          <button class="btn btn-block btn-primary">Download ZIP</button>
-      </form>
-</div>
+<section id="download" class="p-2">
+    <h3>Step 3: Download</h3>
+    <div class="">
+        <form action="/compress" method="post">
+              <button class="btn btn-dark">Download ZIP</button>
+          </form>
+    </div>
+</section>
 {% endblock %}
