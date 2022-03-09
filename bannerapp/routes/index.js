@@ -8,26 +8,23 @@ const fs = require('fs');
 /* GET home page. */
 router.get('/', function (req, res, next) {
   const dirpath = path.resolve('./uploads/');
-
-  // fs.readdir(dirpath, (err, files) => {
-  //   files.forEach( file => {
-  //     if (path.extname(file).toLowerCase() === '.png') fs.unlink( `${dirpath}/${file}`, () => {} );
-  //   });
-  // });
-
   res.render('index', { title: 'DEPT' });
 });
 
 var multer = require('multer');
+let size = 'bum';
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, './uploads')
+    console.log('org. size', size);
+    size = req.params.size;
+    console.log('new size',  size);
+    cb(null, `./uploads/${size}`);
   },
   filename: function (req, file, cb) {
     // console.log('req bg',req.body.bg);
     const extension = file.originalname.split('.').pop();
-    // console.log(extension);
+    console.log(extension);
     cb(null, `${file.fieldname}.${extension}`);
   }
 })
@@ -35,7 +32,7 @@ var upload = multer({ storage: storage })
 
 
 
-router.post('/profile-upload-single',
+router.post('/profile-upload-single/size/:size',
   upload.fields([
     { name: 'bg' },
     { name: 'txt_1' },
@@ -56,10 +53,12 @@ router.post('/profile-upload-single',
 
 router.post("/compress", (req, res) => {
   const zip = new admzip();
+  console.log('zip folder size', size);
 
-  zip.addLocalFolder(path.resolve('uploads'));
-  zip.writeZip("files.zip");
-  res.download('files.zip');
+  zip.addLocalFolder(path.resolve(`uploads/${size}`));
+  const name = `${size}.zip`;
+  zip.writeZip(name);
+  res.download(name);
 });
 
 module.exports = router;
