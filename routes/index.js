@@ -22,7 +22,6 @@ var storage = multer.diskStorage({
     cb(null, `./uploads/${size}`);
   },
   filename: function (req, file, cb) {
-    // console.log('req bg',req.body.bg);
     const extension = file.originalname.split('.').pop();
     console.log(extension);
     cb(null, `${file.fieldname}.${extension}`);

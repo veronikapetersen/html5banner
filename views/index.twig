@@ -4,63 +4,52 @@
   <h1 class="bg-dark text-white fw-bold fs-2 p-4">{{title}}</h1>
   <h2 class="p-2 fw-bold d-flex justify-content-center"> HTML5 Banners Generator</h2>
 
-{# 
-  <form method="POST" action="/profile-upload-single" enctype="multipart/form-data">
-      <div>
-          <div>
-              <label>Upload background </label>
-              <input type="file" name="bg" required/>
-          </div>
-          <div>
-              <label>Upload txt_1 </label>
-              <input type="file" name="txt_1" required/>
-          </div>
-          <div>
-              <label>Upload txt_2</label>
-              <input type="file" name="txt_2" required/>
-          </div>
-          <div>
-              <label>Upload cta</label>
-              <input type="file" name="cta" required/>
-          </div>
-      </div>
-      <div>
-          <input type="submit" value="Upload" />
-      </div>
-  </form> #}
+
 <section id="sizes" class="p-2">
-    <p>Select the size</p>
-    <form action="">
+    <h3>Step 1: Select the size</h3>
+    <form action="" class="d-flex flex-row justify-content-around" >
         <div>
-            <input type="radio" id="300x250" name="size" value="300x250">
-            <label for="300x250">300x250</label>
+            <p class="m-0">Portrait:</p>
+            <div>
+                <input type="radio" id="300x250" name="size" value="300x250">
+                <label for="300x250">300x250</label>
+            </div>
+            <div>
+                <input type="radio" id="300x600" name="size" value="300x600">
+                <label for="300x600">300x600</label>
+            </div>
+            <div>
+                <input type="radio" id="320x320" name="size" value="320x320">
+                <label for="320x320">320x320</label>
+            </div>
         </div>
+
         <div>
-            <input type="radio" id="300x600" name="size" value="300x600">
-            <label for="300x600">300x600</label>
-        </div>
-        <div>
-            <input type="radio" id="320x320" name="size" value="320x320">
-            <label for="320x320">320x320</label>
-        </div>
-        <div>
-            <input type="radio" id="930x180" name="size" value="930x180">
-            <label for="930x180">930x180</label><br>
-        </div>
-        <div>
-            <input type="radio" id="930x600" name="size" value="930x600">
-            <label for="930x600">930x600</label><br>
+            <p class="m-0">Lanscape:</p>
+            <div>
+                <input type="radio" id="728x90" name="size" value="728x90">
+                <label for="728x90">728x90</label><br>
+            </div>
+            <div>
+                <input type="radio" id="930x180" name="size" value="930x180">
+                <label for="930x180">930x180</label><br>
+            </div>
+            <div>
+                <input type="radio" id="930x600" name="size" value="930x600">
+                <label for="930x600">930x600</label><br>
+            </div>
         </div>
     </form>
 
 
 </section>
   <section id="upload" class="p-2">
-      <h3>Step 1: Upload the assets</h3>
+      <h3>Step 2: Upload the assets</h3>
       <div class="d-grid gap-3">
             <div class="p-2 bg-light border">
                 <p>Background image:</p>
-                <input id="fileupload" type="file" name="bg"/>
+                <input id="fileupload" class="fileupload" type="file" name="bg"/>
+                <label for="fileupload" class="">add background image</label>  
             </div>
             <div class="p-2 bg-light border">
                 <p>Text 1:</p>
@@ -82,18 +71,15 @@
     
     
     <section id="preview" class="p-2">
-        <h3>Step 2: Preview the banner</h3>
+        <h3>Step 3: Preview the banner</h3>
 
         <div class="d-flex justify-content-center">
             <iframe class="preview" src="" frameborder="0" width="" height="" scrolling="no"></iframe>
         </div>
     </section>
-  {# <div>
-    <a href="/uploads.zip" download="300x600">Download</a>
-</div> #}
 
 <section id="download" class="p-2">
-    <h3>Step 3: Download</h3>
+    <h3>Step 4: Download</h3>
     <div class="">
         <form action="/compress" method="post">
               <button class="btn btn-dark">Download ZIP</button>

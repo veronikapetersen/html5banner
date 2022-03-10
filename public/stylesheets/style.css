@@ -6,3 +6,26 @@ body {
 a {
   color: #00B7FF;
 }
+
+/* .fileupload {
+  cursor: pointer;
+} */
+
+.fileupload {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.fileupload + label {
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.fileupload + label:hover {
+  cursor: pointer;
+}
