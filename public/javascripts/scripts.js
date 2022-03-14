@@ -11,29 +11,21 @@ function loadHtml() {
   const dimensions = value.split('x');
   document.querySelector(".preview").width = dimensions[0];
   document.querySelector(".preview").height = dimensions[1];
-
-
-  // if (value==="300x250") {
-  //   document.querySelector(".preview").src = `${value}/${value}.html`;
-  //   document.querySelector(".preview").height = "250";
-  // } else if (value === "300x600") {
-  //   document.querySelector(".preview").src = "300x600/300x600.html";
-  //   document.querySelector(".preview").width = "300";
-  //   document.querySelector(".preview").height = "600";
-  // } else if (value === "320x320") {
-  //   document.querySelector(".preview").src = "320x320/320x320.html";
-  //   document.querySelector(".preview").width = "320";
-  //   document.querySelector(".preview").height = "320";
-  // } else if (value === "930x180") {
-  //   document.querySelector(".preview").src = "930x180/930x180.html";
-  //   document.querySelector(".preview").width = "930";
-  //   document.querySelector(".preview").height = "180";
-  // } else if (value === "930x600") {
-  //   document.querySelector(".preview").src = "930x600/930x600.html";
-  //   document.querySelector(".preview").width = "930";
-  //   document.querySelector(".preview").height = "600";
-  // }
 }
+
+var inputs = document.querySelectorAll('.fileupload');
+Array.prototype.forEach.call(inputs, function (input) {
+  var label = input.nextElementSibling,
+  labelVal = label.innerHTML;
+
+  input.addEventListener('change', function(e)
+  {
+    var fileName = '';
+    fileName = e.target.value.split("\\").pop();
+    if (fileName) 
+    label.querySelector('span').innerHTML = fileName;
+  })
+})
 
 document.querySelector("#upload-button").addEventListener("click", uploadFile);
 
@@ -58,10 +50,3 @@ async function uploadFile() {
     }
 }
 
-
-// var sizes = document.querySelectorAll('input[name="size"]');
-// console.log(sizes);
-// // document.querySelectorAll('input[name="size"]').forEach.addEventListener("click", selectSize);
-// sizes.forEach(size => {
-//  size.addEventListener("click", showValue());
-// });

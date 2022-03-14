@@ -7,10 +7,6 @@ a {
   color: #00B7FF;
 }
 
-/* .fileupload {
-  cursor: pointer;
-} */
-
 .fileupload {
 	width: 0.1px;
 	height: 0.1px;
@@ -21,11 +17,17 @@ a {
 }
 
 .fileupload + label {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1.2rem;
   display: inline-block;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: white;
+  color: black;
 }
 
 .fileupload + label:hover {
   cursor: pointer;
+  background-color: black;
+  color: white;
 }
