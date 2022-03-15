@@ -1,10 +1,34 @@
 document.querySelectorAll('input[name="size"]').forEach(size => {
   size.addEventListener("click", () => {
     value= size.getAttribute("value");
+    if (value === '300x250' || value === '300x600' || value === '320x320') {
+      console.log("portrait");
+      document.querySelector("#wrapper").classList.add("wrapper");
+      document.querySelector("#upload").classList.add("width50");
+      document.querySelector("#assetswrapper").classList.remove("landscape");
+      document.querySelectorAll(".asset").forEach(function (asset) {
+        asset.classList.add("assetPortrait");
+      })
+
+    } else {
+      console.log("landscape");
+      document.querySelector("#wrapper").classList.remove("wrapper");
+      document.querySelector("#upload").classList.remove("width50");
+      document.querySelector("#assetswrapper").classList.add("landscape");
+      document.querySelectorAll(".asset").forEach(function (asset) {
+        asset.classList.remove("assetPortrait");
+      })
+    }
     console.log(value);
+      document.querySelector("#wrapper").classList.remove("displayNone");
+    // showUploadSection();
     loadHtml();
   })
 })
+
+// function showUploadSection() {
+//   document.querySelector("#wrapper").classList.remove("displayNone");
+// }
 
 function loadHtml() {
   document.querySelector(".preview").src = `${value}/${value}.html`;

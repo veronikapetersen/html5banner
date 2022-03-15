@@ -25,7 +25,7 @@
         </div>
 
         <div>
-            <p class="m-0">Lanscape:</p>
+            <p class="m-0">Landscape:</p>
             <div>
                 <input type="radio" id="728x90" name="size" value="728x90">
                 <label for="728x90">728x90</label><br>
@@ -40,61 +40,66 @@
             </div>
         </div>
     </form>
-
-
 </section>
-  <section id="upload" class="p-2">
-      <h3>Step 2: Upload the assets</h3>
-      <div class="d-grid gap-3">
-            <div class="p-2 bg-light border">
-                <p>Background image:</p>
-                <input id="fileupload" class="fileupload" type="file" name="bg"/>
-                <label for="fileupload">
-                    <span>Choose file</span>
-                </label>
-            </div>
-            <div class="p-2 bg-light border">
-                <p>Text 1:</p>
-                <input id="fileupload2" class="fileupload" type="file" name="txt_1"/>
-                <label for="fileupload2">
-                    <span>Choose file</span>    
-                </label>
-            </div>
-            <div class="p-2 bg-light border">
-                <p>Text 2:</p>
-                <input id="fileupload3" class="fileupload" type="file" name="txt_2"/>
-                <label for="fileupload3">
-                    <span>Choose file</span>    
-                </label>
-            </div>
-            <div class="p-2 bg-light border">
-                <p>CTA:</p>
-                <input id="fileupload4" class="fileupload" type="file" name="cta"/>
-                <label for="fileupload4">
-                    <span>Choose file</span>
-                </label>
-            </div>
-            <div>
-                <button id="upload-button" class="btn btn-dark">Upload </button>
-            </div>
-        </div>
-    </section>
-    
-    
-    <section id="preview" class="p-2">
-        <h3>Step 3: Preview the banner</h3>
 
-        <div class="d-flex justify-content-center">
-            <iframe class="preview" src="" frameborder="0" width="" height="" scrolling="no"></iframe>
-        </div>
-    </section>
+<!-- add class wrapper to #wrapper when sizes are portrait sizes -->
+<div id="wrapper" class="displayNone">
+    <!-- add class width50 to #upload when sizes are portrait sizes -->
 
-<section id="download" class="p-2">
+<section id="upload" class="p-2">
+    <h3>Step 2: Upload the assets</h3>
+    <!-- <div class="d-grid gap-3"> -->
+    <!-- add class landscape to #assetswrapper when sizes are landscape sizes  -->
+    <div id="assetswrapper" class="">
+        <div class="asset p-2 bg-light border">
+            <p>Background:</p>
+            <input id="fileupload" class="fileupload" type="file" name="bg"/>
+            <label for="fileupload">
+                <span>Choose file</span>
+            </label>
+        </div>
+        <div class="asset p-2 bg-light border">
+            <p>Text 1:</p>
+            <input id="fileupload2" class="fileupload" type="file" name="txt_1"/>
+            <label for="fileupload2">
+                <span>Choose file</span>    
+            </label>
+        </div>
+        <div class="asset p-2 bg-light border">
+            <p>Text 2:</p>
+            <input id="fileupload3" class="fileupload" type="file" name="txt_2"/>
+            <label for="fileupload3">
+                <span>Choose file</span>    
+            </label>
+        </div>
+        <div class="asset p-2 bg-light border">
+            <p>CTA:</p>
+            <input id="fileupload4" class="fileupload" type="file" name="cta"/>
+            <label for="fileupload4">
+                <span>Choose file</span>
+            </label>
+        </div>
+    </div>
+    <div>
+        <button id="upload-button" class="btn btn-dark">Upload </button>
+    </div>
+</section>
+
+<section id="preview" class="p-2">
+    <h3>Step 3: Preview the banner</h3>
+
+    <div class="d-flex">
+        <iframe class="preview" src="" frameborder="0" width="" height="" scrolling="no"></iframe>
+    </div>
+</section>
+</div>
+
+<section id="download" class="p-2 displayNone">
     <h3>Step 4: Download</h3>
     <div class="">
         <form action="/compress" method="post">
-              <button class="btn btn-dark">Download ZIP</button>
-          </form>
+            <button class="btn btn-dark">Download ZIP</button>
+        </form>
     </div>
 </section>
 {% endblock %}

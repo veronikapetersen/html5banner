@@ -31,3 +31,39 @@ a {
   background-color: black;
   color: white;
 }
+
+.displayNone {
+  display: none;
+}
+
+.landscape {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin: auto;
+  justify-content: space-around;
+}
+
+/* .assetPortrait {
+  width: 23%;
+} */
+
+.portrait {
+  display: flex;
+  flex-direction: column;
+}
+
+.assetPortrait {
+  margin-bottom: 10px;
+  width: 160px;
+}
+
+/* wrapper for #upload and #preview sections */
+.wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.width50 {
+  width: 50%;
+}
