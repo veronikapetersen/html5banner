@@ -44,10 +44,6 @@ a {
   justify-content: space-around;
 }
 
-/* .assetPortrait {
-  width: 23%;
-} */
-
 .portrait {
   display: flex;
   flex-direction: column;
@@ -66,4 +62,19 @@ a {
 
 .width50 {
   width: 50%;
+}
+
+.uploadButton {
+  color: #fff;
+  background-color: #212529;
+  border-color: #212529;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
 }

@@ -29,8 +29,6 @@ var storage = multer.diskStorage({
 })
 var upload = multer({ storage: storage })
 
-
-
 router.post('/profile-upload-single/size/:size',
   upload.fields([
     { name: 'bg' },

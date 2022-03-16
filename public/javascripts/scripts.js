@@ -1,6 +1,21 @@
 document.querySelectorAll('input[name="size"]').forEach(size => {
   size.addEventListener("click", () => {
+    var inputs = document.querySelectorAll('.fileupload');
+    Array.prototype.forEach.call(inputs, function (input) {
+      var label = input.nextElementSibling;
+      // input.addEventListener('change', function(e)
+      // {
+      //   // var fileName = '';
+      //   fileName = e.target.value.split("\\").pop();
+      //   if (fileName) 
+        label.querySelector('span').innerHTML = 'Choose file';
+        // document.querySelector("#upload-button").classList.remove("displayNone");
+      // })
+    })
+
     value= size.getAttribute("value");
+    document.querySelector("#preview").classList.add("displayNone");
+    document.querySelector("#upload-button").classList.add("displayNone");
     if (value === '300x250' || value === '300x600' || value === '320x320') {
       console.log("portrait");
       document.querySelector("#wrapper").classList.add("wrapper");
@@ -21,14 +36,9 @@ document.querySelectorAll('input[name="size"]').forEach(size => {
     }
     console.log(value);
       document.querySelector("#wrapper").classList.remove("displayNone");
-    // showUploadSection();
-    loadHtml();
+    // loadHtml();
   })
 })
-
-// function showUploadSection() {
-//   document.querySelector("#wrapper").classList.remove("displayNone");
-// }
 
 function loadHtml() {
   document.querySelector(".preview").src = `${value}/${value}.html`;
@@ -39,38 +49,37 @@ function loadHtml() {
 
 var inputs = document.querySelectorAll('.fileupload');
 Array.prototype.forEach.call(inputs, function (input) {
-  var label = input.nextElementSibling,
-  labelVal = label.innerHTML;
-
+  var label = input.nextElementSibling;
   input.addEventListener('change', function(e)
   {
-    var fileName = '';
+    // var fileName = '';
     fileName = e.target.value.split("\\").pop();
     if (fileName) 
     label.querySelector('span').innerHTML = fileName;
+    document.querySelector("#upload-button").classList.remove("displayNone");
   })
 })
 
 document.querySelector("#upload-button").addEventListener("click", uploadFile);
 
 async function uploadFile() {
-    // console.log("test");
-    let formData = new FormData();    
-    console.log(fileupload)            
-    // formData.append("temp", "folder");
-    formData.append("bg", fileupload.files[0]);
-    formData.append("txt_1", fileupload2.files[0]);
-    formData.append("txt_2", fileupload3.files[0]);
-    formData.append("cta", fileupload4.files[0]);
+  // console.log("test");
+  let formData = new FormData();    
+  console.log(fileupload)            
+  // formData.append("temp", "folder");
+  formData.append("bg", fileupload.files[0]);
+  formData.append("txt_1", fileupload2.files[0]);
+  formData.append("txt_2", fileupload3.files[0]);
+  formData.append("cta", fileupload4.files[0]);
+  
+  const response = await fetch(`/profile-upload-single/size/${value}`, {
+    method: "POST", 
+    body: formData
+  }); 
 
-    const response = await fetch(`/profile-upload-single/size/${value}`, {
-      method: "POST", 
-      body: formData
-    });   
     if (response.status === 200) {
-      // console.log("files uploaded");
-      // console.log(document.querySelector(".preview"));
-      // document.querySelector(".preview").src = "300x600.html";
+      document.querySelector("#preview").classList.remove("displayNone");
+      loadHtml();
     }
 }
 
