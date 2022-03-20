@@ -5,9 +5,9 @@
   <h2 class="p-2 fw-bold d-flex justify-content-center"> HTML5 Banners Generator</h2>
 
 
-<section id="sizes" class="p-2">
+<section id="sizes" class="">
     <h3>Step 1: Select the size</h3>
-    <form action="" class="d-flex flex-row justify-content-around" >
+    <form action="" class="sizes" >
         <div>
             <p class="m-0">Portrait:</p>
             <div>
@@ -28,15 +28,15 @@
             <p class="m-0">Landscape:</p>
             <div>
                 <input type="radio" id="728x90" name="size" value="728x90">
-                <label for="728x90">728x90</label><br>
+                <label for="728x90">728x90</label>
             </div>
             <div>
                 <input type="radio" id="930x180" name="size" value="930x180">
-                <label for="930x180">930x180</label><br>
+                <label for="930x180">930x180</label>
             </div>
             <div>
                 <input type="radio" id="930x600" name="size" value="930x600">
-                <label for="930x600">930x600</label><br>
+                <label for="930x600">930x600</label>
             </div>
         </div>
     </form>
@@ -45,60 +45,69 @@
 <!-- add class wrapper to #wrapper when sizes are portrait sizes -->
 <div id="wrapper" class="displayNone">
 
-<!-- add class width50 to #upload when sizes are portrait sizes -->
-<section id="upload" class="p-2">
-    <h3>Step 2: Upload the assets</h3>
-    <!-- <div class="d-grid gap-3"> -->
-    <!-- add class landscape to #assetswrapper when sizes are landscape sizes  -->
-    <div id="assetswrapper" class="">
-        <div class="asset p-2 bg-light border">
-            <p>Background:</p>
-            <input id="fileupload" class="fileupload" type="file" name="bg"/>
-            <label for="fileupload">
-                <span>Choose file</span>
-            </label>
+    <!-- add class width50 to #upload when sizes are portrait sizes -->
+    <section id="upload">
+        <h3>Step 2: Upload the assets</h3>
+        <!-- add class landscape to #assetswrapper when sizes are landscape sizes  -->
+        <div id="assetswrapper" class="assetswrapper">
+            <div class="asset">
+                <p>Background:</p>
+                <input id="fileupload" class="fileupload" type="file" name="bg"/>
+                <label for="fileupload">
+                    <span>Choose file</span>
+                </label>
+            </div>
+            <div class="asset">
+                <p>Text 1:</p>
+                <input id="fileupload2" class="fileupload" type="file" name="txt_1"/>
+                <label for="fileupload2">
+                    <span>Choose file</span>    
+                </label>
+            </div>
+            <div class="asset">
+                <p>Text 2:</p>
+                <input id="fileupload3" class="fileupload" type="file" name="txt_2"/>
+                <label for="fileupload3">
+                    <span>Choose file</span>    
+                </label>
+            </div>
+            <div class="asset">
+                <p>CTA:</p>
+                <input id="fileupload4" class="fileupload" type="file" name="cta"/>
+                <label for="fileupload4">
+                    <span>Choose file</span>
+                </label>
+            </div>
         </div>
-        <div class="asset p-2 bg-light border">
-            <p>Text 1:</p>
-            <input id="fileupload2" class="fileupload" type="file" name="txt_1"/>
-            <label for="fileupload2">
-                <span>Choose file</span>    
-            </label>
+        <div>
+            <button id="upload-button" class="displayNone uploadButton">Upload</button>
         </div>
-        <div class="asset p-2 bg-light border">
-            <p>Text 2:</p>
-            <input id="fileupload3" class="fileupload" type="file" name="txt_2"/>
-            <label for="fileupload3">
-                <span>Choose file</span>    
-            </label>
-        </div>
-        <div class="asset p-2 bg-light border">
-            <p>CTA:</p>
-            <input id="fileupload4" class="fileupload" type="file" name="cta"/>
-            <label for="fileupload4">
-                <span>Choose file</span>
-            </label>
-        </div>
-    </div>
-    <div>
-        <button id="upload-button" class="displayNone uploadButton">Upload</button>
-    </div>
-</section>
+    </section>
 
-<section id="preview" class="p-2 displayNone">
-    <h3>Step 3: Preview the banner</h3>
-    <div class="d-flex">
-        <iframe class="preview" src="" frameborder="0" width="" height="" scrolling="no"></iframe>
-    </div>
-</section>
+    <section id="preview" class="displayNone">
+        <h3>Step 3: Preview the banner</h3>
+        <div class="d-flex">
+            <iframe class="preview" src="" frameborder="0" width="" height="" scrolling="no"></iframe>
+        </div>
+    </section>
 </div>
 
-<section id="download" class="p-2 displayNone">
+<section id="download" class="displayNone">
     <h3>Step 4: Download</h3>
-    <div class="">
+    <div>
         <form action="/compress" method="post">
-            <button class="btn btn-dark">Download ZIP</button>
+            <button class="downloadButton">Download ZIP</button>
         </form>
+    </div>
+</section>
+
+<section id="reset" class="displayNone">
+    <h3>Step 5: Reset the generator</h3>
+    <p>
+        Removes all the uploaded assets and all the generated zip files.
+    </p>
+    <div>
+        <button id="resetButton" class="resetButton">Reset</button>
     </div>
 </section>
 {% endblock %}

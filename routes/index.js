@@ -3,6 +3,7 @@ var router = express.Router();
 const path = require('path');
 const admzip = require('adm-zip')
 const fs = require('fs');
+const glob = require("glob")
 
 
 /* GET home page. */
@@ -39,19 +40,12 @@ router.post('/profile-upload-single/size/:size',
   function (req, res, next) {
 
     return res.send(true)
-    // res.render('index');
-
-    // res.append('bumm bummelum');
-    // var response = '<a href="/">Home</a><br>'
-    // response += "Files uploaded successfully.<br>"
-    // response += `<img src="${req.file.path}" /><br>`
-    // return res.send(response)
   })
 
 router.post("/compress", (req, res) => {
   const zip = new admzip();
   console.log('zip folder size', size);
-
+  
   zip.addLocalFolder(path.resolve(`uploads/${size}`));
   const name = `${size}.zip`;
   zip.writeZip(name);
@@ -60,4 +54,27 @@ router.post("/compress", (req, res) => {
 
 module.exports = router;
 
+router.get("/delete-files", (req, res) => {
+    // const dir = path.resolve("uploads/**/*.!(html)");
+    // const zip = path.resolve("*.zip");
+    const dir = "uploads/**/*.!(html)";
+    const zip = "*.zip";
 
+    function bum(files) {
+      files.forEach(file => {
+        fs.unlink(file, (err) => {
+          if (err) throw err;
+        });
+      })
+    }
+
+    glob(zip, {}, function (er, files) {
+      bum(files);
+    })
+        
+    glob(dir, {}, function (er, files) {
+      bum(files);
+    })
+
+    return res.send(true)
+})
