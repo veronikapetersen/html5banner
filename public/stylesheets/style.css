@@ -4,6 +4,12 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+/* #upload label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} */
+
 #sizes, #wrapper, #download, #reset {
   margin: 10px;
 }
@@ -30,12 +36,16 @@ body {
 
 .fileupload + label {
   font-size: 1.2rem;
-  display: inline-block;
+  /* display: inline-block; */
+  display: block;
   border: 1px solid black;
   border-radius: 5px;
   padding: 5px;
   background-color: white;
   color: black;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .fileupload + label:hover {
@@ -67,8 +77,12 @@ body {
 
 .asset {
   padding: 5px;
-  border: 1px solid rgb(220, 220, 220);
+  border: 1px dashed rgb(150, 150, 150);
   background-color:  rgb(250, 250, 250);
+}
+
+.asset.highlight {
+  border: 3px solid red;
 }
 
 .asset:not(:last-child) {
