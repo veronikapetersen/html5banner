@@ -2,13 +2,13 @@ var inputs = document.querySelectorAll('.fileupload');
 document.querySelector("#upload-button").addEventListener("click", uploadFile);
 
 
-document.querySelectorAll('input[name="size"]').forEach(size => {
-  size.addEventListener("click", () => {
+document.querySelectorAll('input[name="size"]').forEach(radioButtonInput => {
+  radioButtonInput.addEventListener("click", () => {
     
     //reset the span on input to Choose file
     reset();
 
-    value= size.getAttribute("value");
+    value = radioButtonInput.getAttribute("value");
     document.querySelector("#preview").classList.add("displayNone");
     document.querySelector("#upload-button").classList.add("displayNone");
     document.querySelector("#download").classList.add("displayNone");
@@ -103,51 +103,11 @@ async function deleteFiles() {
   const response = await fetch(`/delete-files`)
 }
 
+async function applyAnim() {
+  const response = await fetch(`/modify-file`);
+  console.log("yes");
+  document.querySelector(".preview").src = `${value}/${value}.html`;
+}
+document.querySelector("#apply-animation").addEventListener("click", applyAnim);
 
-// const dropAreaList = document.querySelectorAll(".asset");
-
-// Array.prototype.forEach.call(dropAreaList, function (dropArea) {
-//   dropArea.addEventListener("drag", function dragOverHandler(ev) {
-//     console.log(dropArea.length);
-//     ev.preventDefault();
-//   })
-//   dropArea.addEventListener("drop", function dropHandler(ev) {
-//     console.log(dropArea.length);
-//     ev.preventDefault();
-//   })
-//   // dropArea.addEventListener("ondrag", dragOverHandler);
-//   // dropArea.addEventListener("ondrop", dropHandler);
-// })
-
-
-// function dragOverHandler(ev) {
-//   console.log('File(s) in drop zone');
-//   // Prevent default behavior (Prevent file from being opened)
-//   ev.preventDefault();
-// }
-
-// //drag and drop files upload
-// function dropHandler(ev) {
-//   console.log('File(s) dropped');
-
-//   // Prevent default behavior (Prevent file from being opened)
-//   ev.preventDefault();
-
-//   if (ev.dataTransfer.items) {
-//     // Use DataTransferItemList interface to access the file(s)
-//     for (var i = 0; i < ev.dataTransfer.items.length; i++) {
-//       // If dropped items aren't files, reject them
-//       if (ev.dataTransfer.items[i].kind === 'file') {
-//         var file = ev.dataTransfer.items[i].getAsFile();
-//         console.log('... file[' + i + '].name = ' + file.name);
-//       }
-//     }
-//   } else {
-//     // Use DataTransfer interface to access the file(s)
-//     for (var i = 0; i < ev.dataTransfer.files.length; i++) {
-//       console.log('... file[' + i + '].name = ' + ev.dataTransfer.files[i].name);
-//     }
-//     updateFileInput(input, fileName, false)
-//   }
-// }
 
