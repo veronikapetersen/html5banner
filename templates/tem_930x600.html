@@ -4,10 +4,10 @@
     <meta charset=utf-8>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title></title>
-    <meta name="ad.size" content="width=300,height=600">
-   <script type="text/javascript">
-      var clickTag = "http://www.google.com";
-   </script>
+    <meta name="ad.size" content="width=930,height=600">
+    <script type="text/javascript">
+      var clickTag = "http://www.google.com"; 
+    </script>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -20,7 +20,7 @@
         bottom: 0;
         cursor: pointer;
         overflow: hidden;
-        background: url('bg.png');
+        background: url('B2C_værelser_930x600_2_BG.png');
       }
 
       .absolute {
@@ -28,51 +28,42 @@
       }
 
       .size {
-        width: 300px;
+        width: 930px;
         height: 600px;
       }
 
       #txt_1 {
-        background: url('txt_1.png');
-        top: -20px;
-        left: 0;
-      }
-
-      #txt_2 {
-        background: url('txt_2.png');
-        top: -20px;
+        background: url('B2C_værelser_930x600_Txt.png');
+        top: -16px;
         left: 0;
       }
 
       #cta {
-        background: url('cta.png');
+        background: url('B2C_værelser_CTA.png');
         background-position: center center;
         background-size: contain;
         background-repeat: no-repeat;
-        width: 131px;
-        height: 35px;
-        bottom: 107px;
-        left: 84.5px;
+        width: 275px;
+        height: 185px;
+        margin: auto;
+        left: 0;
+        right: 0;
+        bottom: 0;
       }
-
     </style>
-
     <style id="animationCss"></style>
+
 </head>
 
 <body>
     <a href="javascript:window.open(window.clickTag)">
       <div id="banner" class="size">
-        <div id="txt_1" class="absolute size frame1_text"></div>
-        <div id="txt_2" class="absolute size frame1_text"></div>
+        <div id="txt_1" class="absolute size"></div>
         <div id="cta" class="absolute"></div>
       </div>
-    </a>
+    </a> 
 
- 
     <script src="https://s0.2mdn.net/ads/studio/cached_libs/gsap_3.0.1_min.js"></script>
-    
     <script id="animation" type="text/javascript"></script>
- 
 </body>
 </html>

@@ -127,6 +127,27 @@ body {
   border-radius: 0.25rem;
 }
 
+#animations-container {
+  margin: 10px 0;
+}
+#animations-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.animationBtn {
+  width: 120px;
+  color: #fff;
+  background-color: #212529;
+  border-color: #212529;
+  border-radius: 0.25rem;
+  text-align: center;
+  padding: 5px;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+
 @media screen and (min-width: 768px) {
   .landscape {
     justify-content: space-around;

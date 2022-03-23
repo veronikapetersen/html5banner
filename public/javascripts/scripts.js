@@ -10,6 +10,7 @@ document.querySelectorAll('input[name="size"]').forEach(radioButtonInput => {
 
     value = radioButtonInput.getAttribute("value");
     document.querySelector("#preview").classList.add("displayNone");
+    document.querySelector("#animations-container").classList.add("displayNone");
     document.querySelector("#upload-button").classList.add("displayNone");
     document.querySelector("#download").classList.add("displayNone");
     document.querySelector("#reset").classList.add("displayNone");
@@ -24,7 +25,6 @@ document.querySelectorAll('input[name="size"]').forEach(radioButtonInput => {
         asset.classList.add("assetPortrait");
       })
     } else {
-      console.log("landscape");
       console.log(value);
       document.querySelector("#wrapper").classList.remove("wrapper");
       document.querySelector("#upload").classList.remove("width50");
@@ -77,6 +77,7 @@ async function uploadFile() {
   
   if (response.status === 200) {
     document.querySelector("#preview").classList.remove("displayNone");
+    document.querySelector("#animations-container").classList.remove("displayNone");
     loadHtml();
   }
 }
@@ -104,10 +105,17 @@ async function deleteFiles() {
 }
 
 async function applyAnim() {
-  const response = await fetch(`/modify-file`);
-  console.log("yes");
+  const response = await fetch(`/animations/${animation}`);
   document.querySelector(".preview").src = `${value}/${value}.html`;
 }
-document.querySelector("#apply-animation").addEventListener("click", applyAnim);
 
 
+document.querySelectorAll(".animationBtn").forEach(animationButton => {
+  animationButton.addEventListener('click', () => {
+    animation = animationButton.getAttribute("id");
+
+
+    console.log(animation);
+    applyAnim();
+  })
+})

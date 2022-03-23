@@ -83,21 +83,37 @@ router.get("/delete-files", (req, res) => {
     return res.send(true)
 })
 
-router.get("/modify-file", (req, res) => {
-  // const animPath = 'animations/';
-  const bufferAnim = fs.readFileSync('animations/opacity.js');
-  const fileContentAnim = bufferAnim.toString();
-  // console.log(fileContentAnim);
-  const bufferCss = fs.readFileSync('animations/opacity.css');
-  const fileContentCss = bufferCss.toString();
+router.get('/animations/:animation', (req, res) => {
+  animation = req.params.animation;
+  const bufferJS = fs.readFileSync(`animations/${animation}.js`);
+  console.log("buffer ", bufferJS);
+  // const fileContentJS = bufferJS.toString();
+  // console.log(fileContentJS);
+  const cssFile = `animations/${animation}.css`;
+  if (fs.existsSync(cssFile)) {
+    console.log(cssFile, " exists");
+    const bufferCss = fs.readFileSync(cssFile);
+    const fileContentCss = bufferCss.toString();
+    console.log(fileContentCss);
+
+
+  } else {
+    console.log("no css file found");
+  }
+
+  // const bufferCss = fs.readFileSync(`animations/${animation}.css`);
+  // const fileContentCss = bufferCss.toString();
   // console.log(fileContentCss);
-  createFile(fileContentAnim, fileContentCss);
+
+  // TODO: fix the function createFile
+  
+  // createFile(fileContentJS, fileContentCss);
   return res.send(true)
 })
 
-function createFile(fileContentAnim, fileContentCss) {
-  fs.readFile('templates/tem_300x600.html', 'utf8', (err,html)=>{
-    // fs.readFile(`templates/tem_${size}.html`, 'utf8', (err,html)=>{
+function createFile(fileContentJS, fileContentCss) {
+  // fs.readFile('templates/tem_300x600.html', 'utf8', (err,html)=>{
+    fs.readFile(`templates/tem_${size}.html`, 'utf8', (err,html)=>{
       if(err){
         throw err;
       }
@@ -105,7 +121,7 @@ function createFile(fileContentAnim, fileContentCss) {
       console.log(size);
       const root = parse(html);
       const script = root.querySelector('#animation');
-      script.innerHTML = fileContentAnim;
+      script.innerHTML = fileContentJS;
       
       const ctaAnim = root.querySelector("#animationCss");
       ctaAnim.innerHTML = fileContentCss;

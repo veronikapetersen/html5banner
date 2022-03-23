@@ -4,7 +4,7 @@
     <meta charset=utf-8>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title></title>
-    <meta name="ad.size" content="width=300,height=600">
+    <meta name="ad.size" content="width=300,height=250">
    <script type="text/javascript">
       var clickTag = "http://www.google.com";
    </script>
@@ -29,18 +29,18 @@
 
       .size {
         width: 300px;
-        height: 600px;
+        height: 250px;
       }
 
       #txt_1 {
         background: url('txt_1.png');
-        top: -20px;
+        top: 0;
         left: 0;
       }
 
       #txt_2 {
         background: url('txt_2.png');
-        top: -20px;
+        top: 0;
         left: 0;
       }
 
@@ -49,18 +49,19 @@
         background-position: center center;
         background-size: contain;
         background-repeat: no-repeat;
-        width: 131px;
-        height: 35px;
-        bottom: 107px;
-        left: 84.5px;
+        width: 105px;
+        height: 29px;
+        bottom: 46px;
+        left: 45px;
       }
 
     </style>
-
     <style id="animationCss"></style>
+
 </head>
 
 <body>
+  
     <a href="javascript:window.open(window.clickTag)">
       <div id="banner" class="size">
         <div id="txt_1" class="absolute size frame1_text"></div>
@@ -68,11 +69,8 @@
         <div id="cta" class="absolute"></div>
       </div>
     </a>
-
  
     <script src="https://s0.2mdn.net/ads/studio/cached_libs/gsap_3.0.1_min.js"></script>
-    
     <script id="animation" type="text/javascript"></script>
- 
 </body>
 </html>
