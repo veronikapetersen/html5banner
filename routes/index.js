@@ -85,29 +85,24 @@ router.get("/delete-files", (req, res) => {
 
 router.get('/animations/:animation', (req, res) => {
   animation = req.params.animation;
+  
+  //get the animation JS
   const bufferJS = fs.readFileSync(`animations/${animation}.js`);
-  console.log("buffer ", bufferJS);
-  // const fileContentJS = bufferJS.toString();
-  // console.log(fileContentJS);
+  const fileContentJS = bufferJS.toString();
+  
+  // get the animation CSS
   const cssFile = `animations/${animation}.css`;
+  let fileContentCss;
+
   if (fs.existsSync(cssFile)) {
-    console.log(cssFile, " exists");
     const bufferCss = fs.readFileSync(cssFile);
-    const fileContentCss = bufferCss.toString();
-    console.log(fileContentCss);
-
-
+    fileContentCss = bufferCss.toString();
   } else {
     console.log("no css file found");
+    fileContentCss = "";
   }
-
-  // const bufferCss = fs.readFileSync(`animations/${animation}.css`);
-  // const fileContentCss = bufferCss.toString();
-  // console.log(fileContentCss);
-
-  // TODO: fix the function createFile
   
-  // createFile(fileContentJS, fileContentCss);
+  createFile(fileContentJS, fileContentCss);
   return res.send(true)
 })
 

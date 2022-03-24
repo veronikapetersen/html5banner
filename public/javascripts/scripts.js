@@ -115,7 +115,7 @@ document.querySelectorAll(".animationBtn").forEach(animationButton => {
     animation = animationButton.getAttribute("id");
 
 
-    console.log(animation);
+    console.log("selected animation is", animation);
     applyAnim();
   })
 })
