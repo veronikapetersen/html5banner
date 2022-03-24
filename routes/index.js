@@ -83,6 +83,8 @@ router.get("/delete-files", (req, res) => {
     return res.send(true)
 })
 
+
+
 router.get('/animations/:animation', (req, res) => {
   animation = req.params.animation;
   

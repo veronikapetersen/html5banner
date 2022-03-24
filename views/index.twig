@@ -1,6 +1,18 @@
 {% extends 'layout.twig' %}
 
 {% block body %}
+{# <button id="startDialogBtn">start dialog</button> #}
+<dialog id="dialog">
+    <form method="dialog">
+        <p>Banner downloaded!</p>
+        <p>Start another one?</p>
+        <div class="dialogBtn-wrapper">
+            <button id="dialogBtn">Yes!</button>
+        </div>
+    </form>
+</dialog>
+ 
+{# <button onclick="javascript:location.reload()">Reload</button> #}
   <h1 class="bg-dark text-white fw-bold fs-2 p-4">{{title}}</h1>
   <h2 class="p-2 fw-bold d-flex justify-content-center"> HTML5 Banners Generator</h2>
 
@@ -96,6 +108,9 @@
 
     <section id="preview" class="displayNone">
         <h3>Step 3: Preview the banner</h3>
+        <div>
+            <button id="replayAnimBtn">Replay animation</button>
+        </div>
         <div class="d-flex">
             <iframe class="preview" src="" frameborder="0" width="" height="" scrolling="no"></iframe>
         </div>

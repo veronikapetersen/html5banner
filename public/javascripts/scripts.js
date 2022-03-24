@@ -1,3 +1,5 @@
+fetch(`/delete-files`)
+
 var inputs = document.querySelectorAll('.fileupload');
 document.querySelector("#upload-button").addEventListener("click", uploadFile);
 
@@ -119,3 +121,24 @@ document.querySelectorAll(".animationBtn").forEach(animationButton => {
     applyAnim();
   })
 })
+
+document.querySelector("#replayAnimBtn").addEventListener("click", () => {
+  document.querySelector(".preview").contentWindow.location.reload();
+})
+
+
+const favDialog = document.querySelector("#dialog");
+
+document.querySelector(".downloadButton").addEventListener('click', function onOpen() {
+  if (typeof favDialog.showModal === "function") {
+    favDialog.showModal();
+    console.log("hey");
+  } else {
+    alert("The <dialog> API is not supported by this browser");
+  }
+});
+
+favDialog.addEventListener('close', function onClose() {
+  window.location.reload();
+  console.log("page reloaded");
+});
