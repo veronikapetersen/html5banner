@@ -1,4 +1,6 @@
 var inputs = document.querySelectorAll('.fileupload');
+let input;
+let inputID;
 function init() {
   fetch(`/delete-files`)
   createEventListeners()
@@ -9,7 +11,6 @@ init();
 
 function createEventListeners() {
   //File upload
-  
   document.querySelector("#upload-button").addEventListener("click", uploadFile);
   
   
@@ -50,15 +51,78 @@ function createEventListeners() {
       document.querySelector("#wrapper").classList.remove("displayNone");
     })
   })
+
+
+//drag and drop upload
+document.querySelectorAll(".asset").forEach(dropArea => {
+  ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    dropArea.addEventListener(eventName, preventDefaults, false)
+  });
+
+  function preventDefaults (e) {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
+  ['dragenter', 'dragover'].forEach(eventName => {
+    dropArea.addEventListener(eventName, highlight, false)
+  });
   
+  ['dragleave', 'drop'].forEach(eventName => {
+    dropArea.addEventListener(eventName, unhighlight, false)
+  });
+
+  function highlight(e) {dropArea.classList.add('highlight')}
+  
+  function unhighlight(e) {dropArea.classList.remove('highlight')}
+
+  dropArea.addEventListener('drop', handleDrop, false);
+})
+
+
+function handleDrop(e) {
+  input = e.currentTarget.querySelector(".fileupload");
+  console.log(input);
+  inputID = input.getAttribute('id');
+  console.log(inputID);
+
+  // files: from FileList into Array
+  let files = [...e.dataTransfer.files];
+  console.log("uploaded files: ", files[0]);
+  const fileName = files[0].name;
+  document.querySelector("#upload-button").classList.remove("displayNone");
+  updateFileInput(input, fileName, reset); 
+  uploadFileDrag(files);
+}
+
+
+async function uploadFileDrag(files) {
+  let formData = new FormData();
+
+  formData.append('bg', files[0]);
+  // formData.append('txt_1', files[0]);
+
+   
+  const response = await fetch(`/profile-upload-single/size/${value}`, {
+    method: "POST", 
+    body: formData
+  }); 
+  
+  if (response.status === 200) {
+    console.log("success");
+  }
+
+}
+
+
   //Get filename and update label
-  
   Array.prototype.forEach.call(inputs, function (input) {
     input.addEventListener('change', function(e) {
+      console.log(e.target.value);
       const fileName = e.target.value.split("\\").pop();
       document.querySelector("#upload-button").classList.remove("displayNone");
   
-      updateFileInput(input, fileName, false)
+      updateFileInput(input, fileName, false);
     })
   })
 
@@ -91,6 +155,9 @@ function createEventListeners() {
 }
 
 
+
+
+
 function updateFileInput(input, fileName, reset) {
   const label = input.nextElementSibling;
   label.querySelector('span').innerHTML = fileName;
@@ -109,19 +176,12 @@ function loadHtml() {
   document.querySelector(".preview").width = dimensions[0];
   document.querySelector(".preview").height = dimensions[1];
   document.querySelector("#download").classList.remove("displayNone");
-  // showResetBtn();
 }
-
-// function showResetBtn() {
-//   document.querySelector("#reset").classList.remove("displayNone");
-// }
-
 
 
 //Route triggers
 async function uploadFile() {
-  let formData = new FormData();    
-  console.log(fileupload)            
+  let formData = new FormData();          
   formData.append("bg", fileupload.files[0]);
   formData.append("txt_1", fileupload2.files[0]);
   formData.append("txt_2", fileupload3.files[0]);
@@ -147,3 +207,5 @@ async function applyAnim() {
   const response = await fetch(`/animations/${animation}`);
   document.querySelector(".preview").src = `${value}/${value}.html`;
 }
+
+
