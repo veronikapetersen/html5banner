@@ -11,7 +11,8 @@ init();
 
 function createEventListeners() {
   //File upload
-  document.querySelector("#upload-button").addEventListener("click", uploadFile);
+  // document.querySelector("#upload-button").addEventListener("click", uploadFile)
+  document.querySelector("#upload-button").addEventListener("click", pleaseDoBoth);
   
   
   //Size radio buttons
@@ -59,11 +60,6 @@ document.querySelectorAll(".asset").forEach(dropArea => {
     dropArea.addEventListener(eventName, preventDefaults, false)
   });
 
-  function preventDefaults (e) {
-    e.preventDefault();
-    e.stopPropagation();
-  };
-
   ['dragenter', 'dragover'].forEach(eventName => {
     dropArea.addEventListener(eventName, highlight, false)
   });
@@ -72,35 +68,55 @@ document.querySelectorAll(".asset").forEach(dropArea => {
     dropArea.addEventListener(eventName, unhighlight, false)
   });
 
-  function highlight(e) {dropArea.classList.add('highlight')}
+  function highlight(e) {dropArea.classList.add('highlight')};
   
-  function unhighlight(e) {dropArea.classList.remove('highlight')}
+  function unhighlight(e) {dropArea.classList.remove('highlight')};
 
   dropArea.addEventListener('drop', handleDrop, false);
 })
 
 
+function preventDefaults (e) {
+  e.preventDefault();
+  e.stopPropagation();
+};
+
+const draggedFiles = []
 function handleDrop(e) {
   input = e.currentTarget.querySelector(".fileupload");
-  console.log(input);
-  inputID = input.getAttribute('id');
-  console.log(inputID);
+  inputName = input.getAttribute('name');
 
   // files: from FileList into Array
   let files = [...e.dataTransfer.files];
-  console.log("uploaded files: ", files[0]);
-  const fileName = files[0].name;
+  const file = files[0]
+  // test(draggedFiles);
+  
+  const draggedFile = {
+    'name': inputName,
+    'file': file
+  }
+  draggedFiles.push(draggedFile)
+  
+  
+  //Change the label of the input
   document.querySelector("#upload-button").classList.remove("displayNone");
-  updateFileInput(input, fileName, reset); 
-  uploadFileDrag(files);
+  const fileName = files[0].name;
+  updateFileInput(input, fileName, reset);
 }
 
+function pleaseDoBoth() {
+  uploadDraggedFiles();
+  uploadFile()
+}
 
-async function uploadFileDrag(files) {
+async function uploadDraggedFiles() {
   let formData = new FormData();
 
-  formData.append('bg', files[0]);
-  // formData.append('txt_1', files[0]);
+  draggedFiles.forEach(fileObject => {
+    formData.append(fileObject.name, fileObject.file);
+  })
+
+  // formData.append('bg', files[0]);
 
    
   const response = await fetch(`/profile-upload-single/size/${value}`, {
