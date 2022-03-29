@@ -1,6 +1,6 @@
 var inputs = document.querySelectorAll('.fileupload');
 let input;
-let inputID;
+let draggedFiles = [];
 function init() {
   fetch(`/delete-files`)
   createEventListeners()
@@ -22,7 +22,9 @@ function createEventListeners() {
       //reset the span on input to Choose file
       reset();
       deleteFiles();
-      
+      // draggedFiles = [];
+      // console.log(draggedFiles);
+
       value = radioButtonInput.getAttribute("value");
       document.querySelector("#preview").classList.add("displayNone");
       document.querySelector("#animations-container").classList.add("displayNone");
@@ -81,7 +83,7 @@ function preventDefaults (e) {
   e.stopPropagation();
 };
 
-const draggedFiles = []
+// const draggedFiles = []
 function handleDrop(e) {
   input = e.currentTarget.querySelector(".fileupload");
   inputName = input.getAttribute('name');
@@ -89,19 +91,38 @@ function handleDrop(e) {
   // files: from FileList into Array
   let files = [...e.dataTransfer.files];
   const file = files[0]
-  // test(draggedFiles);
   
   const draggedFile = {
     'name': inputName,
     'file': file
   }
-  draggedFiles.push(draggedFile)
-  
-  
+  console.log('file: ', draggedFile);
+
   //Change the label of the input
   document.querySelector("#upload-button").classList.remove("displayNone");
   const fileName = files[0].name;
   updateFileInput(input, fileName, reset);
+
+  
+  
+
+  draggedFiles.forEach((draggo, index) => {
+    const isTheSame = (draggo.name === inputName)
+    console.log(isTheSame, index);
+    if (isTheSame) {
+      draggedFiles.splice(index, 1, draggedFile)
+    } else {
+      draggedFiles.push(draggedFile)
+    }
+  });
+
+  if (draggedFiles.length === 0) {
+    draggedFiles.push(draggedFile)
+  }
+  // console.log(draggo);
+  // draggedFiles.push(draggedFile)
+  console.log('Array: ', draggedFiles);
+
 }
 
 function pleaseDoBoth() {
@@ -116,7 +137,6 @@ async function uploadDraggedFiles() {
     formData.append(fileObject.name, fileObject.file);
   })
 
-  // formData.append('bg', files[0]);
 
    
   const response = await fetch(`/profile-upload-single/size/${value}`, {
@@ -125,9 +145,8 @@ async function uploadDraggedFiles() {
   }); 
   
   if (response.status === 200) {
-    console.log("success");
+    // console.log("success");
   }
-
 }
 
 
@@ -181,6 +200,8 @@ function updateFileInput(input, fileName, reset) {
 }
 
 function reset() {
+  draggedFiles = [];
+  console.log(draggedFiles);
   Array.prototype.forEach.call(inputs, function (input) {
     updateFileInput(input, 'Choose file', true)
   })
