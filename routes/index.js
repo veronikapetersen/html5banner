@@ -20,9 +20,8 @@ let size = 'bum';
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    console.log('org. size', size);
+    console.log('req.params.size', req.params.size);
     size = req.params.size;
-    console.log('new size',  size);
     cb(null, `./uploads/${size}`);
   },
   filename: function (req, file, cb) {
@@ -45,7 +44,8 @@ router.post('/profile-upload-single/size/:size',
       console.log('copy done');
     })
     return res.send(true)
-  })
+  }
+)
 
 router.post("/compress", (req, res) => {
   const zip = new admzip();
@@ -57,7 +57,7 @@ router.post("/compress", (req, res) => {
   res.download(name);
 });
 
-module.exports = router;
+
 
 router.get("/delete-files", (req, res) => {
     // const dir = "uploads/**/*.!(html)";
@@ -129,3 +129,6 @@ function createFile(fileContentJS, fileContentCss) {
     }) 
 
   }
+
+
+  module.exports = router;
