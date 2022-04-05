@@ -1,7 +1,6 @@
 {% extends 'layout.twig' %}
 
 {% block body %}
-{# <button id="startDialogBtn">start dialog</button> #}
 <dialog id="dialog">
     <form method="dialog">
         <p>Banner downloaded!</p>
@@ -12,7 +11,6 @@
     </form>
 </dialog>
  
-{# <button onclick="javascript:location.reload()">Reload</button> #}
   <div class="bg-dark text-white fw-bold fs-2 p-4">
     <svg width="73" height="20" viewBox="0 0 73 20" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M0 20h6.945c6.565 0 11.333-2.714 11.333-10S13.51 0 6.945 0H0v20zm5.312-4.657V4.657h1.69c3.731 0 6.018 1.37 6.018 5.343
@@ -69,7 +67,7 @@
     <section id="upload">
         <h3>Step 2: Upload the assets</h3>
         <!-- add class landscape to #assetswrapper when sizes are landscape sizes  -->
-        <div id="assetswrapper" class="assetswrapper">
+        <div id="assetswrapper" class="assetswrapper landscape">
             <div class="asset">
                 <p>Background:</p>
                 <input id="fileupload" class="fileupload" type="file" name="bg"/>
@@ -103,19 +101,30 @@
             <button id="upload-button" class="displayNone uploadButton">Upload</button>
         </div>
 
-        <div id="animations-container" class="displayNone">
+        {# <div id="animations-container" class="displayNone">
             <p>Animations:</p>
             <div id="animations-wrapper">
-                {# <button id="apply-animation">Fade in</button> #}
                 <button id="fadein" class="animationBtn">Fade in</button>
                 <button id="zoomin" class="animationBtn">Zoom in</button>
                 <button id="pop" class="animationBtn">Pop</button>
             </div>
-        </div>
+        </div> #}
     </section>
 
     <section id="preview" class="displayNone">
-        <h3>Step 3: Preview the banner</h3>
+        <h3>Step 3: Select animation and preview the banner</h3>
+        
+        <div id="animations-container" class="displayNone">
+            <div id="animations-wrapper">
+                <button id="noAnim" class="noAnimBtn">None</button>
+                <button id="fadein" class="animationBtn">Fade in</button>
+                <button id="zoomin" class="animationBtn">Zoom in</button>
+                <button id="pop" class="animationBtn">Pop</button>
+                <button id="anim4" class="animationBtn">Anim4</button>
+                <button id="anim5" class="animationBtn">Anim5</button>
+            </div>
+        </div>
+        
         <div>
             <button id="replayAnimBtn">Replay animation</button>
         </div>

@@ -4,12 +4,6 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-/* #upload label {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-} */
-
 #sizes, #wrapper, #download, #reset {
   margin: 10px;
 }
@@ -36,7 +30,6 @@ body {
 
 .fileupload + label {
   font-size: 1.2rem;
-  /* display: inline-block; */
   display: block;
   border: 1px solid black;
   border-radius: 5px;
@@ -132,11 +125,11 @@ body {
 }
 #animations-wrapper {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
 }
 
 .animationBtn {
-  width: 120px;
+  width: 110px;
   color: #fff;
   background-color: #212529;
   border-color: #212529;
@@ -147,19 +140,15 @@ body {
   margin-bottom: 5px;
 }
 
-#replayAnimBtn {
+#replayAnimBtn, #upload-button {
   margin-bottom: 10px;
 }
 
 @media screen and (min-width: 768px) {
   .landscape {
-    justify-content: space-around;
-    max-width: 900px;
     margin: auto;
   }
-  .landscape .asset {
-    width: 200px;
-  }
+
   #sizes, #wrapper, #download, #reset {
     margin: 10px 20px;
   }

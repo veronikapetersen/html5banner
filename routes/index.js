@@ -127,8 +127,29 @@ function createFile(fileContentJS, fileContentCss) {
         if (err) throw err;
       })
     }) 
-
   }
 
+
+
+  router.get("/noanim", (req, res) => {
+    fs.readFile(`uploads/${size}/${size}.html`, 'utf8', (err,html)=>{
+        console.log("success");  
+        const root = parse(html);
+        const script = root.querySelector('#animation');
+        script.innerHTML = '';
+        const ctaAnim = root.querySelector("#animationCss");
+        ctaAnim.innerHTML = '';
+        const newFile = root.toString();
+        
+        if(err){
+          throw err;
+        }
+
+        fs.writeFile(`uploads/${size}/${size}.html`, newFile, (err) => {
+          if (err) throw err;
+        })
+    }) 
+    return res.send(true)
+  }) 
 
   module.exports = router;
