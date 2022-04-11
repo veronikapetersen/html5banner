@@ -1,0 +1,17 @@
+
+#txt_1 {
+    opacity: 1;
+    transform: scale(0, 0);
+    transform-origin: center center;
+  }
+  
+  #txt_2 {
+    opacity: 1;
+    transform: scale(0, 0);
+    transform-origin: center center;
+  }
+
+  #cta {
+    opacity: 0;
+  }
+  
