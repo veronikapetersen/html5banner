@@ -76,10 +76,14 @@ span {
   border: 1px dashed rgb(150, 150, 150);
   background-color:  rgb(250, 250, 250);
   max-width: 23%;
+  box-sizing: border-box;
 }
 
 .asset.highlight {
-  border: 3px solid red;
+  /* border: 3px solid red; */
+  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.1s ease-in-out;
+
 }
 
 .asset:not(:last-child) {
