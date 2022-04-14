@@ -1,20 +1,17 @@
 
-#txt_1 {
-    opacity: 0;
-    /* position: absolute;
-    top: 40px; */
-    top: 20px;
-  }
-  #txt_2 {
-    opacity: 0;
-    /* position: absolute;
-    top: 40px; */
-    top: 20px;
-  }
-  #cta {
-    opacity: 0;
-    top: 20px;
-  }
+/*fade up for size 300x250*/
+/*#txt_1 {
+  opacity: 0;
+  top: 45%;
+}
 
+#txt_2 {
+  opacity: 0;
+  top: 70%;
+}
 
-  
+#cta {
+  opacity: 0;
+  top: 85%;
+}
+*/

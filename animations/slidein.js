@@ -1,17 +1,18 @@
 
- gsap.to('#txt_2', { duration: 0.2, left: 0 });
- gsap.to('#txt_2', { duration: 0.23, left: '100%', delay: 5.06 });
+//slide in for size 300x250
 
+ gsap.to('#txt_2', { duration: 0.7, ease: Power1.easeInOut, left: 0 });
+ gsap.to('#txt_2', { duration: 0.7, ease: Power1.easeInOut, left: '100%', delay: 5.3});
 
- gsap.to('#cta', { duration: 2.17, scale: 1, ease: Power1.easeInOut });
- gsap.to('#cta', { duration: 0.07, scale: .89, ease: Power1.easeInOut, delay: 2.24 });
- gsap.to('#cta', { duration: 0.07, scale: 1, ease: Power1.easeInOut, delay: 2.29 });
-
- gsap.to('#cta', { duration: 0.07, scale: 1, ease: Power1.easeInOut, delay: 3.28 });
- gsap.to('#cta', { duration: 0.07, scale: .89, ease: Power1.easeInOut, delay: 4.05 });
- gsap.to('#cta', { duration: 0.07, scale: 1, ease: Power1.easeInOut, delay: 4.1 });
-
- gsap.to('#cta', { duration: 0.07, scale: 1, ease: Power1.easeInOut, delay: 5.06 });
- gsap.to('#cta', { duration: 0.07, scale: .89, ease: Power1.easeInOut, delay: 5.13 });
- gsap.to('#cta', { duration: 0.07, scale: 1, ease: Power1.easeInOut, delay: 5.18 });
+ gsap.to('#cta', {duration: 1.3, ease: Power1.easeInOut, scale: 1});
+ gsap.to('#cta', {duration: 0.2, ease: Power1.easeInOut, scale: .89, delay: 1.3});
+ gsap.to('#cta', {duration: 0.2, ease: Power1.easeInOut, scale: 1, delay: 1.5});
+ 
+ gsap.to('#cta', {duration: 0.2, ease: Power1.easeInOut, scale: 1, delay: 2.7});
+ gsap.to('#cta', {duration: 0.2, ease: Power1.easeInOut, scale: .89, delay: 2.9});
+ gsap.to('#cta', {duration: 0.2, ease: Power1.easeInOut, scale: 1, delay: 3.1});
+ 
+ gsap.to('#cta', {duration: 0.2, ease: Power1.easeInOut, scale: 1, delay: 4.1});
+ gsap.to('#cta', {duration: 0.2, ease: Power1.easeInOut, scale: .89, delay: 4.3});
+ gsap.to('#cta', {duration: 0.2, ease: Power1.easeInOut, scale: 1, delay: 4.5});
  
