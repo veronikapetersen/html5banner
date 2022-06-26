@@ -4,6 +4,15 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+#logo {
+  background-color: black;
+}
+
+#logo img {
+  width: 100px;
+  height: 100px;
+}
+
 #sizes, #wrapper, #download, #reset {
   margin: 10px;
 }

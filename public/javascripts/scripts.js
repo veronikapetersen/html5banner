@@ -149,6 +149,14 @@ async function uploadFiles() {
   });
 
   if (response.status === 200) {
+    console.log(value);
+    if (value === '300x250' || value === '300x600' || value === '320x320' || value === '930x600') {
+      document.querySelector("#slideup").classList.add("displayNone");
+      document.querySelector("#slidein").classList.remove("displayNone");
+    } else {
+      document.querySelector("#slideup").classList.remove("displayNone");
+      document.querySelector("#slidein").classList.add("displayNone");
+    }
     document.querySelector("#preview").classList.remove("displayNone");
     document.querySelector("#animations-container").classList.remove("displayNone");
     loadHtml();

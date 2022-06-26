@@ -36,28 +36,16 @@
         background-image: url('txt_1.png');
         background-repeat: no-repeat;
         background-size: 100%;
-        top: 36%;
-        width: 32%;
-        height: 30%;
-        margin-left: 3%;
-        /*
         top: 0;
         left: 0;
-        */
       }
 
       #txt_2 {
         background-image: url('txt_2.png');
         background-repeat: no-repeat;
         background-size: 100%;
-        top: 50%;
-        width: 32%;
-        height: 35%;
-        margin-left: 3%;
-        /*
         top: 0;
         left: 0;
-        */
       }
 
       #cta {
@@ -65,16 +53,13 @@
         background-position: center center;
         background-size: contain;
         background-repeat: no-repeat;
-        top: 35%;
-        width: 20%;
-        height: 30%;
-        margin-left: 72%;
-       /*
-        width: 131px;
-        height: 35px;
-        bottom: 10px;
-        left: 346px;
-      */
+        top: 0;
+        left: 0;
+      }
+
+      .txtsize, .ctasize {
+        width: 100%;
+        height: 100%;
       }
     </style>
     <style id="animationCss"></style>
@@ -84,9 +69,9 @@
 <body>
     <a href="javascript:window.open(window.clickTag)">
       <div id="banner" class="size">
-        <div id="txt_1" class="absolute"></div>
-        <div id="txt_2" class="absolute"></div>
-        <div id="cta" class="absolute"></div>
+        <div id="txt_1" class="absolute txtsize"></div>
+        <div id="txt_2" class="absolute txtsize"></div>
+        <div id="cta" class="absolute ctasize"></div>
       </div>
     </a>
  
