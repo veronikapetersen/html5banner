@@ -10,23 +10,17 @@
         </div>
     </form>
 </dialog>
- 
-  <div id="logo">
+
+<div id="logo">
     <img src="/images/logo.png" alt="logo">
-    {# <svg width="73" height="20" viewBox="0 0 73 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 20h6.945c6.565 0 11.333-2.714 11.333-10S13.51 0 6.945 0H0v20zm5.312-4.657V4.657h1.69c3.731 0 6.018 1.37 6.018 5.343
-                            0 3.971-2.287 5.343-6.019 5.343h-1.69zM21.355 20H35.82v-4.486h-9.153v-3.399h9.07V7.828h-9.07V4.485h9.153V0H21.355v20zm18.25 0h5.311v-6.515h3.161c4.766
-                            0 7.954-2.114 7.954-6.742C56.031 2.114 52.843 0 48.077 0h-8.471v20zm5.311-10.83V4.315h3.051c1.961 0 2.915.828 2.915 2.428s-.954
-                            2.427-2.915 2.427h-3.051zM62.405 20h5.31V4.686H73V0H57.12v4.686h5.285V20z" fill="currentColor"></path>
-        </svg> #}
-  </div>
-  
-  <h2 class="p-2 fw-bold d-flex justify-content-center"> HTML5 Banners Generator</h2>
+</div>
+
+<h2 class="p-2 fw-bold d-flex justify-content-center"> HTML5 Banners Generator</h2>
 
 
 <section id="sizes" class="">
     <h3>Step 1: Select the size</h3>
-    <form action="" class="sizes" >
+    <form action="" class="sizes">
         <div>
             <p class="m-0">Portrait:</p>
             <div>
@@ -46,8 +40,8 @@
         <div>
             <p class="m-0">Landscape:</p>
             <div>
-                <input type="radio" id="728x90" name="size" value="728x90">
-                <label for="728x90">728x90</label>
+                <input disabled type="radio" id="728x90" name="size" value="728x90">
+                <label disabled for="728x90">728x90</label>
             </div>
             <div>
                 <input type="radio" id="930x180" name="size" value="930x180">
@@ -71,28 +65,28 @@
         <div id="assetswrapper" class="assetswrapper landscape">
             <div class="asset">
                 <p>Background:</p>
-                <input id="fileupload" class="fileupload" type="file" name="bg"/>
+                <input id="fileupload" class="fileupload" type="file" name="bg" />
                 <label for="fileupload">
                     <span>Choose file</span>
                 </label>
             </div>
             <div class="asset">
                 <p>Text 1:</p>
-                <input id="fileupload2" class="fileupload" type="file" name="txt_1"/>
+                <input id="fileupload2" class="fileupload" type="file" name="txt_1" />
                 <label for="fileupload2">
-                    <span>Choose file</span>    
+                    <span>Choose file</span>
                 </label>
             </div>
             <div class="asset">
                 <p>Text 2:</p>
-                <input id="fileupload3" class="fileupload" type="file" name="txt_2"/>
+                <input id="fileupload3" class="fileupload" type="file" name="txt_2" />
                 <label for="fileupload3">
-                    <span>Choose file</span>    
+                    <span>Choose file</span>
                 </label>
             </div>
             <div class="asset">
                 <p>CTA:</p>
-                <input id="fileupload4" class="fileupload" type="file" name="cta"/>
+                <input id="fileupload4" class="fileupload" type="file" name="cta" />
                 <label for="fileupload4">
                     <span>Choose file</span>
                 </label>
@@ -101,20 +95,11 @@
         <div>
             <button id="upload-button" class="displayNone uploadButton">Upload</button>
         </div>
-
-        {# <div id="animations-container" class="displayNone">
-            <p>Animations:</p>
-            <div id="animations-wrapper">
-                <button id="fadein" class="animationBtn">Fade in</button>
-                <button id="zoomin" class="animationBtn">Zoom in</button>
-                <button id="pop" class="animationBtn">Pop</button>
-            </div>
-        </div> #}
     </section>
 
     <section id="preview" class="displayNone">
         <h3>Step 3: Select animation and preview the banner</h3>
-        
+
         <div id="animations-container" class="displayNone">
             <div id="animations-wrapper">
                 <button id="noAnim" class="noAnimBtn">None</button>

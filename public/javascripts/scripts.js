@@ -129,10 +129,10 @@ function handleSelect(e) {
 
 function addDraggedFiletoArray(newFileObj) {
     const index = draggedFiles.findIndex(arrayItem => arrayItem.name === newFileObj.name)
-    console.log(index);
+    // console.log(index);
     if (index === -1) draggedFiles.push(newFileObj)
     else draggedFiles.splice(index, 1, newFileObj)
-    console.log('Array: ', draggedFiles);
+    // console.log('Array: ', draggedFiles);
 }
 
 
@@ -149,7 +149,7 @@ async function uploadFiles() {
   });
 
   if (response.status === 200) {
-    console.log(value);
+    // console.log(value);
     if (value === '300x250' || value === '300x600' || value === '320x320' || value === '930x600') {
       document.querySelector("#slideup").classList.add("displayNone");
       document.querySelector("#slidein").classList.remove("displayNone");
@@ -194,7 +194,7 @@ async function applyAnim() {
 }
 
 async function noAnim() {
-  console.log("no anim");
+  // console.log("no anim");
   await fetch(`/noanim`);
   // document.querySelector(".preview").src = `${value}/${value}.html`;
 }

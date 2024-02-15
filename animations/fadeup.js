@@ -1,12 +1,3 @@
-
-//fade up for size 300x250
-
-//gsap.to('#txt_1', { duration: 0.7, opacity: 1, top: `35%`, ease: Power1.easeInOut });
-//gsap.to('#txt_2', { duration: 0.7, opacity: 1, top: `60%`, ease: Power1.easeInOut, delay: 0.7 });
-//gsap.to('#cta', { duration: 0.7, opacity: 1, top: `75%`, ease: Power1.easeInOut, delay: 1.4 });
-
-
-//fade up - should work for all sizes
 const txt1_top_org = document.styleSheets[0].cssRules[3].style.getPropertyValue('top');
 const txt1_top_new = parseFloat(txt1_top_org.match(/\d+/g)) + parseFloat(10);
 

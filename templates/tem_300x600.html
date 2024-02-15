@@ -1,83 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset=utf-8>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="ad.size" content="width=300,height=600">
-   <script type="text/javascript">
-      var clickTag = "http://www.google.com";
-   </script>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
+  <meta charset=utf-8>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="ad.size" content="width=300,height=600">
+  <script type="text/javascript">
+    var clickTag = "http://www.google.com";
+  </script>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    #banner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      cursor: pointer;
+      overflow: hidden;
+      background-image: url('bg.png');
+      background-size: 300px 600px;
+    }
 
-      #banner {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        cursor: pointer;
-        overflow: hidden;
-        background-image: url('bg.png');
-        background-size: 300px 600px;
-      }
+    .absolute {
+      position: absolute;
+    }
 
-      .absolute {
-        position: absolute;
-      }
+    .size {
+      width: 300px;
+      height: 600px;
+    }
 
-      .size {
-        width: 300px;
-        height: 600px;
-      }
+    #txt_1 {
+      background-image: url('txt_1.png');
+      background-repeat: no-repeat;
+      background-size: 100%;
+      /*top: 0;*/
+      top: 40%;
+      left: 0;
+    }
 
-      #txt_1 {
-        background-image: url('txt_1.png');
-        background-repeat: no-repeat;
-        background-size: 100%;
-        top: 0;
-        left: 0;
-      }
+    #txt_2 {
+      background-image: url('txt_2.png');
+      background-repeat: no-repeat;
+      background-size: 100%;
+      /*top: 0;*/
+      top: 60%;
+      left: 0;
+    }
 
-      #txt_2 {
-        background-image: url('txt_2.png');
-        background-repeat: no-repeat;
-        background-size: 100%;
-        top: 0;
-        left: 0;
-      }
+    #cta {
+      background-image: url('cta.png');
+      background-size: 100%;
+      background-repeat: no-repeat;
+      /*top: 0;*/
+      top: 75%;
+      left: 0;
+    }
 
-      #cta {
-        background-image: url('cta.png');
-        background-size: 100%;
-        background-repeat: no-repeat;
-        top: 0;
-        left: 0;
-      }
+    .txtsize,
+    .ctasize {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 
-      .txtsize, .ctasize {
-        width: 100%;
-        height: 100%;
-      }
-    </style>
-
-    <style id="animationCss"></style>
+  <style id="animationCss"></style>
 </head>
 
 <body>
-    <a href="javascript:window.open(window.clickTag)">
-      <div id="banner" class="size">
-        <div id="txt_1" class="absolute txtsize"></div>
-        <div id="txt_2" class="absolute txtsize"></div>
-        <div id="cta" class="absolute ctasize"></div>
-      </div>
-    </a>
+  <a href="javascript:window.open(window.clickTag)">
+    <div id="banner" class="size">
+      <div id="txt_1" class="absolute txtsize"></div>
+      <div id="txt_2" class="absolute txtsize"></div>
+      <div id="cta" class="absolute ctasize"></div>
+    </div>
+  </a>
 
-    <script src="https://s0.2mdn.net/ads/studio/cached_libs/gsap_3.0.1_min.js"></script>
-    
-    <script id="animation" type="text/javascript"></script>
- 
+  <script src="https://s0.2mdn.net/ads/studio/cached_libs/gsap_3.0.1_min.js"></script>
+
+  <script id="animation" type="text/javascript"></script>
+
 </body>
+
 </html>
